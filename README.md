@@ -79,3 +79,6 @@ curl -X 'GET' \
   }
 ]
 ```
+
+# License
+See the [LICENSE](https://github.com/plmatev/py-macvendors-app/blob/main/LICENSE.md) file for license rights and limitations (MIT).
