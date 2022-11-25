@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  mongodb:
+    image: mongo:4.4.7
+    container_name: mac_oui_lookup_mongodb
+    volumes:
+      - mongodb:/data/db
+    ports:
+      - "26016:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME="${mongo_user}"
+      - MONGO_INITDB_ROOT_PASSWORD="${mongo_password}"
+    restart: always
+
+  api:
+    build: ./api
+    container_name: mac_oui_lookup_api
+    ports:
+      - "8000:8000"
+    restart: always
+
+  preprocessor:
+    build: ./preprocessor
+    container_name: mac_oui_lookup_preprocessor
+    depends_on:
+      - mongodb
+    restart: unless-stopped
+
+volumes:
+  mongodb:
+    name: mac_oui_data_volume
