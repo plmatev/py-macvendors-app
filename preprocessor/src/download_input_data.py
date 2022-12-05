@@ -37,9 +37,11 @@ def download_file(url: str) -> None:
                 if chunk:
                     f.write(chunk)
 
-    except (ConnectionError, HTTPError, Timeout, RequestException):
+    except (ConnectionError, HTTPError, Timeout, RequestException) as exception:
+        logger.error(f'Unable to download file!\nURL:{url}\nError message was:\n{exception}')
         raise SystemExit(1)
-    except OSError:
+    except OSError as exception:
+        logger.error(f'OS module error!\nError message was:\n{exception}')
         raise SystemExit(1)
 
 
