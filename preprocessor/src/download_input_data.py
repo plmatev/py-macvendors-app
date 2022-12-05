@@ -5,14 +5,14 @@ import os
 import requests
 
 
-if not os.path.exists("logs"):
-    os.makedirs("logs")
+if not os.path.exists("/script/logs"):
+    os.makedirs("/script/logs")
 
 log_format = '%(asctime)s - %(name)s:%(levelname)s - %(message)s'
 logger = logging.getLogger(__name__)
 logger.setLevel('DEBUG')
 
-file_handler = logging.FileHandler("logs/Download.log", mode='w')
+file_handler = logging.FileHandler("/script/logs/Download.log", mode='w')
 formatter = logging.Formatter(log_format)
 file_handler.setFormatter(formatter)
 
@@ -32,7 +32,7 @@ def download_file(url: str) -> None:
         get_response.raise_for_status()
 
         file_name = url.split("/")[-1]
-        with open("input_data/" + file_name, 'wb') as f:
+        with open("/script/input_data/" + file_name, 'wb') as f:
             for chunk in get_response.iter_content(chunk_size=4096):
                 if chunk:
                     f.write(chunk)

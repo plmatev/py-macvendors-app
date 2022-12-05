@@ -12,14 +12,14 @@ load_dotenv()
 mongo_user = os.getenv("mongo_user")
 mongo_pass = os.getenv("mongo_pass")
 
-if not os.path.exists("logs"):
-    os.makedirs("logs")
+if not os.path.exists("/script/logs"):
+    os.makedirs("/script/logs")
 
 log_format = '%(asctime)s - %(name)s:%(levelname)s - %(message)s'
 logger = logging.getLogger(__name__)
 logger.setLevel('DEBUG')
 
-file_handler = logging.FileHandler("logs/Mongo.log", mode='w')
+file_handler = logging.FileHandler("/script/logs/Mongo.log", mode='w')
 formatter = logging.Formatter(log_format)
 file_handler.setFormatter(formatter)
 
@@ -40,7 +40,7 @@ def parse_data(file: str) -> None:
     :return: None
     """
 
-    with open("input_data/" + file, encoding='utf-8', newline='') as f:
+    with open("/script/input_data/" + file, encoding='utf-8', newline='') as f:
         mongo_client = MongoClient(f"mongodb://{mongo_user}:{mongo_pass}@mongodb:27017/")
         mongo_db = mongo_client["MacAddrRange"]
 
