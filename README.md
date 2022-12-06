@@ -80,5 +80,12 @@ curl -X 'GET' \
 ]
 ```
 
+# Development
+This repository comes with pre-commit hooks defined. To use them:
+* Create virtual environment: ```python3 -m venv venv```
+* Activate it: ```source venv/bin/activate```
+* Install the dependencies: ```pip3 install -r requirements.txt```
+* Install the git hook scripts: ```pre-commit install```
+
 # License
 See the [LICENSE](https://github.com/plmatev/py-macvendors-app/blob/main/LICENSE.md) file for license rights and limitations (MIT).
