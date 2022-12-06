@@ -3,10 +3,13 @@ from typing import Tuple
 import re
 
 
-MAC_F_COLON = {"regex": re.compile(r'^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$'), "sep": ":"}
-MAC_F_HYPHEN = {"regex": re.compile(r'^[0-9a-fA-F]{2}(-[0-9a-fA-F]{2}){5}$'), "sep": "-"}
-MAC_F_DOT = {"regex": re.compile(r'^[0-9a-fA-F]{4}(\.[0-9a-fA-F]{4}){2}$'), "sep": "."}
-MAC_F_STR = {"regex": re.compile(r'^[0-9a-fA-F]{12}$'), "sep": ""}
+MAC_F_COLON = {"regex": re.compile(r"^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$"), "sep": ":"}
+MAC_F_HYPHEN = {
+    "regex": re.compile(r"^[0-9a-fA-F]{2}(-[0-9a-fA-F]{2}){5}$"),
+    "sep": "-",
+}
+MAC_F_DOT = {"regex": re.compile(r"^[0-9a-fA-F]{4}(\.[0-9a-fA-F]{4}){2}$"), "sep": "."}
+MAC_F_STR = {"regex": re.compile(r"^[0-9a-fA-F]{12}$"), "sep": ""}
 
 
 def mac_to_int(mac_address: str) -> Tuple[str, int]:
@@ -24,7 +27,7 @@ def mac_to_int(mac_address: str) -> Tuple[str, int]:
         MAC_F_COLON.values(),
         MAC_F_HYPHEN.values(),
         MAC_F_DOT.values(),
-        MAC_F_STR.values()
+        MAC_F_STR.values(),
     ):
 
         try:

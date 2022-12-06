@@ -25,5 +25,5 @@ def main() -> None:
             t_pool.submit(parse_data, file_name)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

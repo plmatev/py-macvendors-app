@@ -1,5 +1,6 @@
 **/.env
 **/__pycache__
+venv/
 
 preprocessor/src/input_data/*
 !preprocessor/src/input_data/.gitkeep

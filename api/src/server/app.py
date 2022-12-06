@@ -7,7 +7,7 @@ from routers.addresses import router as mac_router
 tags = [
     {
         "name": "MAC Vendor Lookup",
-        "description": "Get details about vendor and IEEE OUI block"
+        "description": "Get details about vendor and IEEE OUI block",
     }
 ]
 
@@ -18,7 +18,7 @@ app = FastAPI(
     contact={
         "name": "Plamen Matev",
         "email": "plmatev@gmail.com",
-    }
+    },
 )
 
 app.add_middleware(
