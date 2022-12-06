@@ -1,0 +1,6 @@
+[flake8]
+# project wide config
+# Ignore:
+# E501: line too long
+# E203: whitespace before ':'
+ignore = E501,E203
